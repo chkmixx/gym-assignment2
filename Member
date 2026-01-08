@@ -1,0 +1,23 @@
+public class Member extends Human {
+
+    private String membershipType;
+
+    public Member(int id, String name, int age, String membershipType) {
+        super(id, name, age);
+        this.membershipType = membershipType;
+    }
+
+    @Override
+    public String work() {
+        return "Member is training in the gym";
+    }
+
+    public void upgradeMembershipType() {
+        this.membershipType = "Premium";
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + ", Membership: " + membershipType;
+    }
+}
