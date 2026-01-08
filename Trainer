@@ -1,0 +1,28 @@
+public class Trainer extends Human {
+
+    private String specialization;
+    private int experienceYears;
+
+    public Trainer(int id, String name, int age,
+                   String specialization, int experienceYears) {
+        super(id, name, age);
+        this.specialization = specialization;
+        this.experienceYears = experienceYears;
+    }
+
+    @Override
+    public String work() {
+        return "Trainer is working w clients";
+    }
+
+    public boolean isExperienced() {
+        return experienceYears >= 4;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() +
+                ", Specialization: " + specialization +
+                ", Experience: " + experienceYears;
+    }
+}
