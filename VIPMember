@@ -1,0 +1,23 @@
+public class VIPMember extends Member {
+
+    private String specialClass;
+
+    public VIPMember(int id, String name, int age, String membershipType, String specialClass) {
+        super(id, name, age, membershipType);
+        this.specialClass = specialClass;
+    }
+
+    @Override
+    public void attendTraining() {
+        System.out.println("VIP " + name + " is attending an exclusive VIP training.");
+    }
+
+    @Override
+    public String getRole() {
+        return "VIP Member";
+    }
+
+    public void attendSpecialClass() {
+        System.out.println(name + " is attending special class: " + specialClass);
+    }
+}
