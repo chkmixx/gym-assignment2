@@ -3,26 +3,37 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
 
-        ArrayList<Human> people = new ArrayList<>();
+        ArrayList<Member> members = new ArrayList<>();
 
-        people.add(new Member(1, "Sayazhan", 17, "Standard"));
-        people.add(new Member(2, "Tomiris", 16, "Basic"));
+        members.add(new Member(1, "Sayazhan", 17, "Basic"));
+        members.add(new StudentMember(2, "Tomiris", 16, "Student", "AITU"));
+        members.add(new VIPMember(3, "Aruzhan", 20, "VIP", "Yoga"));
+        members.add(new Trainer(4, "Albina", 25, "Fitness", 6));
 
-        people.add(new Trainer(3, "Albina", 25, "Yoga", 6));
-        people.add(new Trainer(4, "Akerke", 22, "Fitness", 3));
-
-        System.out.println("\n--- POLYMORPHISM ---");
-        for (Human p : people) {
-            System.out.println(p.work());
+        System.out.println("=== POLYMORPHISM ===");
+        for (Member m : members) {
+            m.attendTraining();   
         }
 
-        System.out.println("\n--- INSTANCEOF ---");
-        for (Human p : people) {
-            if (p instanceof Trainer) {
-                Trainer t = (Trainer) p;
+        System.out.println("\n=== INSTANCEOF & DOWNCASTING ===");
+        for (Member m : members) {
+
+            if (m instanceof VIPMember) {
+                VIPMember vip = (VIPMember) m;
+                vip.attendSpecialClass();
+            }
+
+            if (m instanceof Trainer) {
+                Trainer t = (Trainer) m;
                 System.out.println(t.name + " experienced: " + t.isExperienced());
             }
         }
+
+        System.out.println("\n=== ALL MEMBERS ===");
+        for (Member m : members) {
+            System.out.println(m);
+        }
     }
 }
+
   
