@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
 
-        ArrayList<Member> members = new ArrayList<>();
+       ArrayList<Human> members = new ArrayList<>();
 
         members.add(new Member(1, "Sayazhan", 17, "Basic"));
         members.add(new StudentMember(2, "Tomiris", 16, "Student", "AITU"));
@@ -11,12 +11,12 @@ public class Main {
         members.add(new Trainer(4, "Albina", 25, "Fitness", 6));
 
         System.out.println("=== POLYMORPHISM ===");
-        for (Member m : members) {
-            m.attendTraining();   
+       for (Human m : members) {
+          m.work();    
         }
 
         System.out.println("\n=== INSTANCEOF & DOWNCASTING ===");
-        for (Member m : members) {
+       for (Human m : members) {
 
             if (m instanceof VIPMember) {
                 VIPMember vip = (VIPMember) m;
