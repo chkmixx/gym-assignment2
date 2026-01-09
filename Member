@@ -1,23 +1,33 @@
-public class Member extends Human {
+public class Member {
 
-    private String membershipType;
+    protected int id;
+    protected String name;
+    protected int age;
+    protected String membershipType;
 
     public Member(int id, String name, int age, String membershipType) {
-        super(id, name, age);
+        this.id = id;
+        this.name = name;
+        this.age = age;
         this.membershipType = membershipType;
     }
 
-    @Override
-    public String work() {
-        return "Member is training in the gym";
+    public void attendTraining() {
+        System.out.println(name + " is attending a general gym training.");
     }
 
-    public void upgradeMembershipType() {
-        this.membershipType = "Premium";
+    public String getRole() {
+        return "Member";
+    }
+
+    public boolean isAdult() {
+        return age >= 17;
     }
 
     @Override
     public String toString() {
-        return super.toString() + ", Membership: " + membershipType;
+        return "[" + getRole() + "] " + name +
+                " | Age: " + age +
+                " | Membership: " + membershipType;
     }
 }
